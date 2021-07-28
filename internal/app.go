@@ -3,7 +3,7 @@ package internal
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/geopraich/go-primes/internal/handlers"
+	"github.com/geopraich/go-primes/internal/service"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
@@ -31,7 +31,7 @@ func (app *App) GetPrimes(rw http.ResponseWriter, r *http.Request) {
 		fmt.Errorf("invalid value %s", err)
 	}
 
-	primes, err := handlers.GeneratePrimes(input)
+	primes, err := service.GeneratePrimes(input)
 	if err != nil {
 		fmt.Errorf("invalid value %s", err)
 	}

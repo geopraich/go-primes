@@ -1,13 +1,12 @@
-package handlers
+package service
 
 import (
-	"fmt"
 	"math"
 )
 
 func GeneratePrimes(input int) ([]int, error) {
 	if input < 2 {
-		return nil, fmt.Errorf("invalid input %d", input)
+		return nil, NewPrimeGeneratorError(input, nil)
 	}
 	primes := make([]int, 0)
 	for i := 2; i < input; i++ {
